@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TMDB Movie Explorer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="cartToggleBtn" class="cart-toggle">
+  Carrinho <span id="cartCount" class="cart-count">0</span>
+</button>
+
+<div class="container">
+  <header>
+    <h1> TMDB <span>Movie Explorer</span></h1>
+    <p>Busque filmes em tempo real usando a API do The Movie Database</p>
+  </header>
+
+  <div id="configBox" class="config-box">
+    <input type="password" id="apiKeyInput" placeholder="Cole sua TMDB API Key (v3 auth) aqui">
+    <button id="saveKeyBtn">Salvar chave</button>
+    <small>Não tem uma chave? Crie gratuitamente em
+      <a href="https://www.themoviedb.org/settings/api" target="_blank" rel="noopener">themoviedb.org/settings/api</a>
+      (Configurações → API). Ela fica salva só no seu navegador.</small>
+  </div>
+
+  <div id="apiKeyOk" class="config-box hidden">
+    <span class="muted-text"> Chave de API configurada</span>
+    <button class="secondary" id="changeKeyBtn">Trocar chave</button>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Não achou o filme na lista? Busque aqui (ex: Matrix, Duna)...">
+    <button id="searchBtn">Buscar</button>
+    <button class="secondary" id="popularBtn">Ver lista de filmes</button>
+  </div>
+
+  <div id="content"></div>
+
+  <div id="paginationBox" class="pagination" style="display:none;">
+    <button class="secondary" id="prevBtn">&larr; Anterior</button>
+    <span id="pageInfo">Página 1</span>
+    <button class="secondary" id="nextBtn">Próxima &rarr;</button>
+  </div>
+
+  <footer>Dados fornecidos pela TMDB API. Projeto acadêmico — API Hunters.</footer>
+</div>
+
+<!-- Painel lateral do carrinho -->
+<div id="cartOverlay" class="cart-overlay hidden"></div>
+<aside id="cartPanel" class="cart-panel hidden">
+  <div class="cart-header">
+    <h2>Seu carrinho</h2>
+    <button id="cartCloseBtn" class="secondary">Fechar</button>
+  </div>
+  <div id="cartItems" class="cart-items"></div>
+  <div id="cartTotal" class="cart-total"></div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>
